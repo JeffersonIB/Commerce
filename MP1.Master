@@ -1,0 +1,386 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MP1.master.cs" Inherits="IT_Finca.MP1" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+    <title>
+        <asp:ContentPlaceHolder ID="title1" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <!-- Bootstrap -->
+    <link href="<%= ResolveClientUrl("~/vendors/bootstrap/dist/css/bootstrap.min.css") %>" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="<%= ResolveClientUrl("~/vendors/font-awesome/css/font-awesome.min.css") %>" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="<%= ResolveClientUrl("~/vendors/nprogress/nprogress.css") %>" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="<%= ResolveClientUrl("~/vendors/iCheck/skins/flat/green.css") %>" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="<%= ResolveClientUrl("~/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css") %>" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="<%= ResolveClientUrl("~/vendors/jqvmap/dist/jqvmap.min.css") %>" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="<%= ResolveClientUrl("~/vendors/bootstrap-daterangepicker/daterangepicker.css") %>" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="<%= ResolveClientUrl("~/build/css/custom.min.css") %>" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="head1" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="icon" type="image/x-icon" href="<%= ResolveUrl("~/Images/Logo.ico") %>" />
+
+</head>
+
+<body class="nav-md">
+    <form id="form1" runat="server">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="<%= Page.ResolveUrl("~/index2.aspx") %>" class="site_title"><i class="fa fa-leaf"></i><span>
+                                <asp:Label CssClass="navbar-link" runat="server" ID="lblFinca">  </asp:Label></span></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_pic">
+                                <img src="<%= ResolveClientUrl("~/Images/user.png") %>" alt="..." class="img-circle profile_img">
+                            </div>
+                            <div class="profile_info" runat="server" id="divuser">
+                                <span>Bienvenido,</span>
+                                <span class="user-name">
+                                    <asp:Label CssClass="navbar-link" runat="server" ID="lblNombre">  </asp:Label>
+                                    <asp:Label CssClass="navbar-link" runat="server" ID="lblApellido">  </asp:Label>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /menu profile quick info -->
+                        <br />
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>General</h3>
+                                <ul class="nav side-menu">
+
+                                    <li id="Primer_Men" runat="server" visible="false"><a><i class="fa fa-sitemap"></i>Administración <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li id="Primera_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Admin/Fincas.aspx") %>">Administración de fincas </a>
+                                            </li>
+                                            <li id="Segunda_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Admin/Lotes.aspx") %>">Administración de lotes </a>
+                                            </li>
+                                            <li id="Tercera_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Admin/Proveedores.aspx") %>">Administración de proveedores </a>
+                                            </li>
+                                            <li id="Cuarta_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Admin/Procesos.aspx") %>">Administración de procesos </a>
+                                            </li>
+                                            <li id="Quinta_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Admin/Actividades.aspx") %>">Administración de actividades </a>
+                                            </li>
+                                            <li id="Sexta_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Admin/Registros.aspx") %>">Administración de registros de actividades</a>
+                                            </li>
+                                            <li id="Septima_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Admin/Cosecha.aspx") %>">Administración de registros de cosecha</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="Segundo_Men" runat="server" visible="false"><a><i class="fa fa-edit"></i>Formularios <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li id="Octava_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/Bilbao.aspx") %>">Bilbao</a>
+                                            </li>
+                                            <li id="Novena_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/DonPatricio.aspx") %>">Don Patricio</a>
+                                            </li>
+                                            <li id="Decima_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/LasMinas.aspx") %>">Las Minas</a>
+                                            </li>
+                                            <li id="DecimaPrimera_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/Desoriente.aspx") %>">Desoriente</a>
+                                            </li>
+                                            <li id="DecimaSegunda_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/LasVegas.aspx") %>">Las Vegas</a>
+                                            </li>
+                                            <li id="DecimaTercera_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/Linea18.aspx") %>">Linea 18</a>
+                                            </li>
+                                            <li id="DecimaCuarta_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/FormsV1.aspx") %>">Formulario V1</a>
+                                            </li>
+                                            <li id="DecimaQuinta_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/FormsV2.aspx") %>">Formulario V2</a>
+                                            </li>
+                                            <li id="DecimaSexta_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/FormsV3.aspx") %>">Formulario V3</a>
+                                            </li>
+                                            <li id="DecimaSeptima_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/Formulario_Cosecha.aspx") %>">Formulario cosecha</a>
+                                            </li>
+                                            <li id="DecimaOctava_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/Formulario_Beneficio.aspx") %>">Formulario beneficio</a>
+                                            </li>
+                                            <li id="DecimaNovena_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/Formulario_Secado.aspx") %>">Formulario secado</a>
+                                            </li>
+                                            <li id="Vigesima_Pag" runat="server">
+                                                <a href="<%= Page.ResolveUrl("~/Pages/Forms/Formulario_Partida.aspx") %>">Formulario Partida</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="Tercer_Men" runat="server" visible="false"><a><i class="fa fa-desktop"></i>Elementos <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li id="VigesimaPrimera_Pag" runat="server"><a href="icons.html">Icons</a></li>
+                                            <li id="VigesimaSegunda_Pag" runat="server"><a href="glyphicons.html">Glyphicons</a></li>
+                                            <li id="VigesimaTercera_Pag" runat="server"><a href="widgets.html">Widgets</a></li>
+                                            <li id="VigesimaCuarta_Pag" runat="server"><a href="invoice.html">Invoice</a></li>
+                                            <li id="VigesimaQuinta_Pag" runat="server"><a href="inbox.html">Inbox</a></li>
+                                            <li id="VigesimaSexta_Pag" runat="server"><a href="calendar.html">Calendar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="Cuarto_Men" runat="server" visible="false"><a><i class="fa fa-table"></i>Tablas <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li id="VigesimaSeptima_Pag" runat="server"><a href="tables.html">Tables</a></li>
+                                            <li id="VigesimaOctava_Pag" runat="server"><a href="tables_dynamic.html">Table Dynamic</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="Quinto_Men" runat="server" visible="false"><a><i class="fa fa-bar-chart-o"></i>Presentación <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li id="VigesimaNovena_Pag" runat="server"><a href="chartjs.html">Chart JS</a></li>
+                                            <li id="Trigesima_Pag" runat="server"><a href="chartjs2.html">Chart JS2</a></li>
+                                            <li id="TrigesimaPrimera_Pag" runat="server"><a href="morisjs.html">Moris JS</a></li>
+                                            <li id="TrigesimaSegunda_Pag" runat="server"><a href="echarts.html">ECharts</a></li>
+                                            <li id="TrigesimaTercera_Pag" runat="server"><a href="other_charts.html">Other Charts</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="Sexto_Men" runat="server" visible="false"><a><i class="fa fa-clone"></i>Diseños <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li id="TrigesimaCuarta_Pag" runat="server"><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
+                                            <li id="TrigesimaQuinta_Pag" runat="server"><a href="fixed_footer.html">Fixed Footer</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="menu_section" runat="server" id="Adicional" visible="false">
+                                <h3>Live On</h3>
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-bug"></i>Pagina adicional <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="e_commerce.html">E-commerce</a></li>
+                                            <li><a href="projects.html">Projects</a></li>
+                                            <li><a href="project_detail.html">Project Detail</a></li>
+                                            <li><a href="contacts.html">Contacts</a></li>
+                                            <li><a href="profile.html">Profile</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-windows"></i>Extras <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="page_403.html">403 Error</a></li>
+                                            <li><a href="page_404.html">404 Error</a></li>
+                                            <li><a href="page_500.html">500 Error</a></li>
+                                            <li><a href="plain_page.html">Plain Page</a></li>
+                                            <li><a href="login.html">Login Page</a></li>
+                                            <li><a href="pricing_tables.html">Pricing Tables</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-sitemap"></i>Multi Nivel <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="#level1_1">Level One</a>
+                                            <li><a>Level One<span class="fa fa-chevron-down"></span></a>
+                                                <ul class="nav child_menu">
+                                                    <li class="sub_menu"><a href="level2.html">Level Two</a>
+                                                    </li>
+                                                    <li><a href="#level2_1">Level Two</a>
+                                                    </li>
+                                                    <li><a href="#level2_2">Level Two</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#level1_2">Level One</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i>Recargar página <span class="label label-success pull-right">Nuevo</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /sidebar menu -->
+
+                        <!-- /menu footer buttons -->
+                        <div class="sidebar-footer hidden-small">
+                            <a data-toggle="tooltip" data-placement="top" title="Ajustes">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Pantalla Completa">
+                                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Contraseña" href="<%= Page.ResolveUrl("~/Pages/Extras/Contrasena.aspx") %>">
+                                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Cerrar Sesión" href="<%= Page.ResolveUrl("~/Default.aspx") %>">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                        <!-- /menu footer buttons -->
+                    </div>
+                </div>
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <nav class="nav navbar-nav">
+                            <ul class=" navbar-right">
+                                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false"></a>
+                                    <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="javascript:;">Perfil</a>
+                                        <a class="dropdown-item" href="<%= Page.ResolveUrl("~/Pages/Extras/Contrasena.aspx") %>">
+                                            <span class="badge bg-red pull-right">50%</span>
+                                            <span>Contraseña</span>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">Ayuda</a>
+                                        <a class="dropdown-item" href="<%= Page.ResolveUrl("~/Default.aspx") %>"><i class="fa fa-sign-out pull-right"></i>Cerrar sesión</a>
+                                    </div>
+                                </li>
+
+                                <li role="presentation" class="nav-item dropdown open">
+                                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-envelope-o"></i>
+                                        <span class="badge bg-green">6</span>
+                                    </a>
+                                    <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                                        <li class="nav-item">
+                                            <a class="dropdown-item">
+                                                <span class="image">
+                                                    <img src="<%= ResolveClientUrl("~/Images/user.png") %>" alt="Profile Image" /></span>
+                                                <span>
+                                                    <span>Administrador</span>
+                                                    <span class="time">Hace 3 minutos</span>
+                                                </span>
+                                                <span class="message">Actualizacion realizada
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item">
+                                                <span class="image">
+                                                    <img src="<%= ResolveClientUrl("~/Images/user.png") %>" alt="Profile Image" /></span>
+                                                <span>
+                                                    <span>Administrador</span>
+                                                    <span class="time">Hace 2 días</span>
+                                                </span>
+                                                <span class="message">El trabajo de correr los procesos ha finalizado...
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item">
+                                                <span class="image">
+                                                    <img src="<%= ResolveClientUrl("~/Images/user.png") %>" alt="Profile Image" /></span>
+                                                <span>
+                                                    <span>Administrador</span>
+                                                    <span class="time">Hace 6 días</span>
+                                                </span>
+                                                <span class="message">Ejecutar procedimientos almacenados.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item">
+                                                <span class="image">
+                                                    <img src="<%= ResolveClientUrl("~/Images/user.png") %>" alt="Profile Image" /></span>
+                                                <span>
+                                                    <span>Administrador</span>
+                                                    <span class="time">Hace 6 días</span>
+                                                </span>
+                                                <span class="message">Restricción de usuario por rol y perfil.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <div class="text-center">
+                                                <a class="dropdown-item">
+                                                    <strong>Ver todas las alertas</strong>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <asp:ContentPlaceHolder ID="body1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- /page content -->
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        Grupo Enlasa - Admin Template by Tic <a href="">Bootstrap</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="<%= ResolveClientUrl("~/vendors/jquery/dist/jquery.min.js") %>"></script>
+        <!-- Bootstrap -->
+        <script src="<%= ResolveClientUrl("~/vendors/bootstrap/dist/js/bootstrap.bundle.min.js") %>"></script>
+        <!-- FastClick -->
+        <script src="<%= ResolveClientUrl("~/vendors/fastclick/lib/fastclick.js") %>"></script>
+        <!-- NProgress -->
+        <script src="<%= ResolveClientUrl("~/vendors/nprogress/nprogress.js") %>"></script>
+        <!-- Chart.js -->
+        <script src="<%= ResolveClientUrl("~/vendors/Chart.js/dist/Chart.min.js") %>"></script>
+        <!-- gauge.js -->
+        <script src="<%= ResolveClientUrl("~/vendors/gauge.js/dist/gauge.min.js") %>"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="<%= ResolveClientUrl("~/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js") %>"></script>
+        <!-- iCheck -->
+        <script src="<%= ResolveClientUrl("~/vendors/iCheck/icheck.min.js") %>"></script>
+        <!-- Skycons -->
+        <script src="<%= ResolveClientUrl("~/vendors/skycons/skycons.js") %>"></script>
+        <!-- Flot -->
+        <script src="<%= ResolveClientUrl("~/vendors/Flot/jquery.flot.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/Flot/jquery.flot.pie.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/Flot/jquery.flot.time.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/Flot/jquery.flot.stack.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/Flot/jquery.flot.resize.js") %>"></script>
+        <!-- Flot plugins -->
+        <script src="<%= ResolveClientUrl("~/vendors/flot.orderbars/js/jquery.flot.orderBars.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/flot-spline/js/jquery.flot.spline.min.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/flot.curvedlines/curvedLines.js") %>"></script>
+        <!-- DateJS -->
+        <script src="<%= ResolveClientUrl("~/vendors/DateJS/build/date.js") %>"></script>
+        <!-- JQVMap -->
+        <script src="<%= ResolveClientUrl("~/vendors/jqvmap/dist/jquery.vmap.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/jqvmap/dist/maps/jquery.vmap.world.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js") %>"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="<%= ResolveClientUrl("~/vendors/moment/min/moment.min.js") %>"></script>
+        <script src="<%= ResolveClientUrl("~/vendors/bootstrap-daterangepicker/daterangepicker.js") %>"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="<%= ResolveClientUrl("~/build/js/custom.min.js") %>"></script>
+    </form>
+</body>
+</html>
